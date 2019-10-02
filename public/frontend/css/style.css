@@ -1,58 +1,4 @@
-/*
-    Project: Shoes Store
-    Version: 1.4
-    Date Created: 10/5/2017
-    Date Updated: 8/9/2017
-    Developed by: Nghia Luong Minh
-    Website: http://minhnghia.info
-    Email: minhnghiadev@gmail.com
-*/
-/*
-    TABLE OF CONTENT
-        1. RESET AND TYPHOGRAPHY
-            1.1 Reset
-            1.2 Typhography
-        2. ELEMENTS
-            2.1 Grid
-            2.2 List
-            2.3 Form
-            2.4 Rating
-            2.5 Block
-            2.6 Post
-            2.7 Banner
-            2.8 Testimonial
-            2.9 Widget
-            2.10 Shoe
-            2.11 Badge
-            2.12 masonry
-            2.13 hotspot
-            2.14 pagination
-            2.15 tags
-            2.16 user
-            2.17 review
-            2.18 comment
-            2.19 iconbox
-            2.20 filter
-            2.21 offer
-            2.22 table
-            2.23 loader
-            2.24 section
-        3.COMPONENTS
-          3.1 navigation
-          3.2 subscribe
-          3.3 cart
-          3.4 search
-          3.5 contact
-        4. MODULES
-            4.1 header
-            4.2 footer
-            4.3 product
-            4.4 404
-        5. FRAMES & OVERWRITE
-           5.1 background
-           5.2 margin
-           5.3 padding
-*/
+
 .masonry-wrapper .grid-item .grid-item__inner, .setting .grid-item .grid-item__inner {
   position: relative; }
 
@@ -1598,8 +1544,8 @@ textarea.form-control {
   font-size: 18px;
   text-transform: uppercase;
   letter-spacing: .1em;
-  color: #fff;
-  background-color: #2AC37D;
+  color: #000;
+  background-color: #fee600;
   line-height: 25px;
   border: none;
   -webkit-border-radius: 60px;
@@ -4544,7 +4490,14 @@ textarea.form-control {
   @media (max-width: 991px) {
     .ps-subscribe .ps-subscribe__form {
       margin-bottom: 15px; } }
+.itemputih img{
+filter: grayscale(100%) opacity(50%);
+;
+}
 
+.itemputih img:hover{
+  filter: grayscale(0%) opacity(100%);
+  }
 .ps-cart {
   line-height: 90px;
   position: relative;
@@ -4580,12 +4533,12 @@ textarea.form-control {
       width: 20px;
       height: 20px;
       font-size: 10px;
-      border: 1px solid #fff;
+      border: 1px solid #000;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
       border-radius: 50%;
-      background-color: #2AC37D; }
+      background-color: rgb(235, 0, 0); }
       .ps-cart__toggle span i {
         font-size: 10px;
         font-style: normal; }

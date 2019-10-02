@@ -14,6 +14,7 @@
                             <div class="alert alert-warning">
                               {{ session('warning') }}
                             </div>
+                        @endif
                     </div>
                   <br>
                   <br>
@@ -79,7 +80,7 @@
                             </div>
                         </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-sikil btn-block"> Sign Up </button>
+                                <button type="submit" class="ps-btn ps-btn--fullwidth"> Sign Up </button>
                             </div>
                             <small class="text-muted">By clicking the 'Sign Up' button, you confirm that you accept our <br> Terms of use and Privacy Policy.</small>
                         </form>
@@ -103,7 +104,6 @@
   <script src="{{ asset('frontend/plugins/jquery.matchHeight-min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('frontend/plugins/slick/slick/slick.min.js') }}"></script>
   <script src="{{ asset('frontend/plugins/elevatezoom/jquery.elevatezoom.js') }}"></script>
-  
   <script src="{{ asset('frontend/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('frontend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
   <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyA-XBs8xkUbYA0ykeWNnxWRP8SMOSQHFW8&amp;region=GB') }}"></script>

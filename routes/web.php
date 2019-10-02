@@ -17,6 +17,8 @@ Auth::routes();
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.verify');
 
 
+Route::view('/about-us', 'site.pages.aboutus');
+
 
 Route::view('/homepage', 'site.pages.homepage');
 

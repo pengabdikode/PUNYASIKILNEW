@@ -5,7 +5,7 @@
 <main class="ps-main">
     <div class="owl-init slider-main owl-carousel" data-items="1" data-dots="false" data-nav="true">
         <div class="item-slide">
-            <img src="{{asset('uploads/slider1.png')}}">
+            <img src="{{asset('frontend/images/slider/3.jpg')}}">
         </div>
         <div class="item-slide rounded">
             <img src="{{asset('uploads/slider2.png')}}">
@@ -185,12 +185,12 @@
         </div>
       </div>
     </div>
-    {{-- <div class="ps-home-partner">
+    <div class="ps-home-partner">
       <div class="ps-container">
-        <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="40" data-owl-nav="false" data-owl-dots="false" data-owl-item="6" data-owl-item-xs="2" data-owl-item-sm="4" data-owl-item-md="5" data-owl-item-lg="6" data-owl-duration="1000" data-owl-mousedrag="on"><a href="#"><img src="frontend/images/partner/1.png" alt=""></a><a href="#"><img src="frontend/images/partner/2.png" alt=""></a><a href="#"><img src="frontend/images/partner/3.png" alt=""></a><a href="#"><img src="frontend/images/partner/4.png" alt=""></a><a href="#"><img src="frontend/images/partner/5.png" alt=""></a><a href="#"><img src="frontend/images/partner/6.png" alt=""></a><a href="#"><img src="frontend/images/partner/7.png" alt=""></a><a href="#"><img src="frontend/images/partner/8.png" alt=""></a>
+        <div class="owl-slider itemputih" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="40" data-owl-nav="false" data-owl-dots="false" data-owl-item="6" data-owl-item-xs="2" data-owl-item-sm="4" data-owl-item-md="5" data-owl-item-lg="6" data-owl-duration="1000" data-owl-mousedrag="on"><a href="#"><img src="{{asset('frontend/images/slider/1.png')}}" alt=""></a><a href="#"><img src="{{asset('frontend/images/slider/2.png')}}" alt=""></a><a href="#"><img src="{{asset('frontend/images/slider/4.png')}}" alt=""></a><a href="#"><img src="{{asset('frontend/images/slider/5.png')}}" alt=""></a><a href="#"><img src="{{asset('frontend/images/slider/6.png')}}" alt=""></a><a href="#"><img src="{{asset('frontend/images/slider/7.png')}}" alt=""></a><a href="#"><img src="{{asset('frontend/images/slider/8.png')}}" alt=""></a><a href="#"><img src="{{asset('frontend/images/slider/9.png')}}" alt=""></a>
         </div>
       </div>
-    </div> --}}
+    </div>
   </main>
   <script src="{{ asset('frontend/js/main.js') }}" type="text/javascript"></script>
   <script src="{{ asset('frontend/js/main.js') }}" type="text/javascript"></script>

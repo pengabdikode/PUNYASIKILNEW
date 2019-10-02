@@ -71,7 +71,7 @@
                 </div>
               </div>
               @empty
-              <p>No Products found in {{ $category->name }}.</p> 
+              <h3>No Products found in {{ $category->name }}.</h3> 
               @endforelse
             </div>
            

@@ -11,7 +11,8 @@
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                     <div class="header__actions">
                         @guest
-                        <a href="{{ route('login') }}">Login &amp; Register</a>
+                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
                         @else
                         <div class="linkhover">
                         <button class="ps-btn2" href="#">{{ Auth::user()->full_name }}</button>
@@ -109,25 +110,9 @@
                     @endif
                     @endforeach
                 @endforeach
-                    <li class="menu-item menu-item-has-children dropdown">
-                        <a href="#">About</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item menu-item-has-children dropdown">
-                                <a href="blog-grid.html">Blog-grid</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item">
-                                        <a href="blog-grid.html">Blog Grid 1</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="blog-grid-2.html">Blog Grid 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item">
-                                <a href="blog-list.html">Blog List</a>
-                            </li>
-                        </ul>
-                    </li>
+                <li class="menu-item">
+                    <a href="/about-us">About</a>
+                </li>
                     <li class="menu-item">
                         <a href="/contact-us">Contact</a>
                     </li>
