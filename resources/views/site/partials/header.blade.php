@@ -10,9 +10,24 @@
 
                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                     <div class="header__actions">
-                        
+                        @guest
                         <a href="{{ route('login') }}">Login &amp; Register</a>
+                        @else
+                        <div class="linkhover">
+                        <button class="ps-btn2" href="#">{{ Auth::user()->full_name }}</button>
+                        <div class="dropdown-cuy">
+                                <a href="{{ route('account.orders') }}">My Orders</a>
+                                <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                
+                        </div>
+                        </div>
 
+                        @endguest
                         <div class="btn-group ps-dropdown">
                             <a
                                 aria-expanded="false"
@@ -23,15 +38,15 @@
 
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="#"><img alt="" src="images/flag/usa.svg"/>
+                                    <a href="#"><img alt="" src="frontend/images/flag/usa.svg"/>
                                         USD</a>
                                 </li>
                                 <li>
-                                    <a href="#"><img alt="" src="images/flag/singapore.svg"/>
+                                    <a href="#"><img alt="" src="frontend/images/flag/singapore.svg"/>
                                         SGD</a>
                                 </li>
                                 <li>
-                                    <a href="#"><img alt="" src="images/flag/japan.svg"/>
+                                    <a href="#"><img alt="" src="frontend/images/flag/japan.svg"/>
                                         JPN</a>
                                 </li>
                             </ul>
@@ -113,16 +128,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item menu-item-has-children dropdown">
-                        <a href="#">Contact</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item">
-                                <a href="contact-us.html">Contact Us #1</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="contact-us.html">Contact Us #2</a>
-                            </li>
-                        </ul>
+                    <li class="menu-item">
+                        <a href="/contact-us">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -198,12 +205,12 @@
         data-owl-nav="true"
         data-owl-speed="7000">
         <p class="ps-service">
-            <i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Shoe Store</p>
+            <i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sikil</p>
 
         <p class="ps-service">
-            <i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Shoe Store</p>
+            <i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sikil</p>
 
         <p class="ps-service">
-            <i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Shoe Store</p>
+            <i class="ps-icon-delivery"></i><strong>Free delivery</strong>: Get free standard delivery on every order with Sikil</p>
     </div>
 </div>

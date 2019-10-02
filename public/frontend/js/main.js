@@ -328,7 +328,7 @@
             }).marker(function(map) {
                 return {
                     position: map.getCenter(),
-                    icon: 'images/marker.png',
+                    icon: 'https://maps.google.com/mapfiles/marker_green.png',
                     animation: google.maps.Animation.BOUNCE
                 };
             }).infowindow({
@@ -466,6 +466,15 @@
             zoomWindowHeight: 600
         });
     }
+    $(document).on('click','.item-image',function(){
+        var url = $(this).attr('src')
+        $('#potogede').attr('src',url)
+
+       $('#potogede').attr('data-zoom-image', url)
+
+       $(".zoomWindow").css("background-image", "url(" + url + ")");
+        
+    })
 
     function slickConfig() {
         var primary = $('.ps-product__image'),

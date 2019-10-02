@@ -14,7 +14,6 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "paypal/rest-api-sdk-php": "^1.14",
-        "rizalafani/rajaongkirlaravel": "^1.0",
         "typicms/nestablecollection": "^1.1",
         "nesbot/carbon": "^2.24.0"
     },

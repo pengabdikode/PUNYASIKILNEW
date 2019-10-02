@@ -24,12 +24,9 @@
             @forelse($category->products as $product)
               <div class="ps-product__column">
                 <div class="ps-shoe mb-30">
+                  @if ($product->images->count() > 0)
                   <div class="ps-shoe__thumbnail">
-                    @if ($product->images->count() > 0)
                     <img src="{{ asset('storage/'.$product->images->first()->full) }}" alt=""><a class="ps-shoe__overlay" href="{{ route('product.show', $product->slug) }}"></a>
-                    @else
-                    <img src="https://via.placeholder.com/176" alt=""><a class="ps-shoe__overlay" href="#"></a>
-                    @endif
                   </div>
                   <div class="ps-shoe__content">
                     <div class="ps-shoe__variants">
@@ -39,7 +36,21 @@
                             <img src="{{ asset('storage/'.$image->full) }}" alt="">
                             @endforeach
                         </div>
+                    @endif
+                    @else
+                    <div class="ps-shoe__thumbnail">
+                      <img src="https://via.placeholder.com/176" alt=""><a class="ps-shoe__overlay" href="{{ route('product.show', $product->slug) }}"></a>
+                    </div>
+                    <div class="ps-shoe__content">
+                        <div class="ps-shoe__variants">
+                        @if ($product->images->count() > 0)
+                            <div class="ps-shoe__variant normal">
+                                <img src="https://via.placeholder.com/176" alt="">
+                                <img src="https://via.placeholder.com/176" alt="">
+                                <img src="https://via.placeholder.com/176" alt="">
+                            </div>
                         @endif
+                    @endif
                       <select class="ps-rating ps-shoe__rating">
                         <option value="1">1</option>
                         <option value="1">2</option>
@@ -53,7 +64,7 @@
                         <span class="ps-shoe__price">
                           <del>{{ config('settings.currency_symbol').$product->price }}</del> {{ config('settings.currency_symbol').$product->sale_price }}</span>
                         @else
-                        <span class="ps-shoe__price">{{ config('settings.currency_symbol').$product->sale_price }}</span>
+                        <span class="ps-shoe__price">{{ config('settings.currency_symbol').$product->price }}</span>
                         @endif
                     </div>
                   </div>

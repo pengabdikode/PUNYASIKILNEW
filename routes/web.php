@@ -52,4 +52,8 @@ Route::get('checkout/payment/complete', 'Site\CheckoutController@complete')->nam
 //order user
 Route::get('account/orders', 'Site\AccountController@getOrders')->name('account.orders');
 
+//contact us
+Route::get('contact-us', 'ContactUSController@contactUS');
+Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactSaveData']);
+
 

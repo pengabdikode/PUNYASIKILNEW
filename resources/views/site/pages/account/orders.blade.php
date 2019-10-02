@@ -1,12 +1,14 @@
 @extends('site.app')
 @section('title', 'Orders')
 @section('content')
-    <section class="section-pagetop bg-dark">
-        <div class="container clearfix">
-            <h2 class="title-page">My Account - Orders</h2>
-        </div>
-    </section>
-    <section class="section-content bg padding-y border-top">
+<br>
+<br>
+<br>
+<br>
+<div class="ps-section__header mb-50">
+        <h3 class="ps-section__title2" data-mask="My Order"></h3>
+</div>
+    <section class="section-content padding-y border-top">
         <div class="container">
             <div class="row">
             </div>

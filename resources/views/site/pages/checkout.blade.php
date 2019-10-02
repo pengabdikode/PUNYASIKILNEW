@@ -1,132 +1,142 @@
 @extends('site.app')
 @section('title', 'Checkout')
 @section('content')
-    <section class="section-pagetop bg-dark">
-        <div class="container clearfix">
-            <h2 class="title-page">Checkout</h2>
-        </div>
-    </section>
-    <section class="section-content bg padding-y">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    @if (Session::has('error'))
-                        <p class="alert alert-danger">{{ Session::get('error') }}</p>
-                    @endif
-                </div>
-            </div>
-            <form action="{{ route('checkout.place.order') }}" method="POST" role="form">
-                @csrf
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="card">
-                            <header class="card-header">
-                                <h4 class="card-title mt-2">Billing Details</h4>
-                            </header>
-                            <article class="card-body">
-                                <div class="form-row">
-                                    <div class="col form-group">
-                                        <label>First name</label>
-                                        <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name">
-                                        @error('first_name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="col form-group">
-                                        <label>Last name</label>
-                                        <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name">
-                                        @error('last_name')
+<main class="ps-main">
+        <div class="ps-checkout pt-80 pb-80">
+          <div class="ps-container">
+            @if (Session::has('error'))
+                <p class="alert alert-danger">{{ Session::get('error') }}</p>
+            @endif
+            <form class="ps-checkout__form" action="{{ route('checkout.place.order') }}" method="post" role="form">
+                    @csrf
+              <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
+                      <div class="ps-checkout__billing">
+                        <h3>Billing Detail</h3>
+                              <div class="form-group form-group--inline">
+                                <label>First Name<span>*</span>
+                                </label>
+                                <input class="form-control @error('first_name') is-invalid @enderror" type="text" name="first_name">
+                                @error('first_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                              </div>
+                              <div class="form-group form-group--inline">
+                                <label>Last Name<span>*</span>
+                                </label>
+                                <input class="form-control @error('last_name') is-invalid @enderror" name="last_name" type="text">
+                                @error('last_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Address</label>
-                                    <input type="text" class="form-control @error('address') is-invalid @enderror" name="address">
-                                    @error('address')
+                                @enderror
+                              </div>
+                              <div class="form-group form-group--inline">
+                                <label>Address<span>*</span>
+                                </label>
+                                <input class="form-control @error('address') is-invalid @enderror" name="address" type="text">
+                                @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
+                                @enderror
+                              </div>
+                              <div class="form-group form-group--inline">
+                                <label>Email Address<span>*</span>
+                                </label>
+                                <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}" disabled>
+                                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                              </div>
+                              <div class="form-group form-group--inline">
+                                <label>City<span>*</span>
+                                </label>
+                                <input class="form-control @error('city') is-invalid @enderror" name="city" type="text">
+                                @error('city')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                              </div>
+                              <div class="form-group form-group--inline">
+                                    <label>Country<span>*</span>
+                                    </label>
+                                    <input class="form-control @error('country') is-invalid @enderror" name="country" type="text">
+                                    @error('country')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>City</label>
-                                        <input type="text" class="form-control @error('city') is-invalid @enderror" name="city">
-                                        @error('city')
+                                  </div>
+                              <div class="form-group form-group--inline">
+                                <label>Phone<span>*</span>
+                                </label>
+                                <input class="form-control @error('phone_number') is-invalid @enderror" name="phone_number" type="text">
+                                @error('phone_number')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Country</label>
-                                        <input type="text" class="form-control @error('country') is-invalid @enderror" name="country">
-                                        @error('country')
+                                @enderror
+                              </div>
+                              <div class="form-group form-group--inline">
+                                <label>Post Code<span>*</span>
+                                </label>
+                                <input class="form-control @error('post_code') is-invalid @enderror" name="post_code" type="text">
+                                @error('post_code')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group  col-md-6">
-                                        <label>Post Code</label>
-                                        <input type="text" class="form-control @error('post_code') is-invalid @enderror" name="post_code">
-                                        @error('post_code')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group  col-md-6">
-                                        <label>Phone Number</label>
-                                        <input type="text" class="form-control @error('phone_number') is-invalid @enderror" name="phone_number">
-                                        @error('phone_number')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}" disabled>
-                                    <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                </div>
-                                <div class="form-group">
-                                    <label>Order Notes</label>
-                                    <textarea class="form-control" name="notes" rows="6"></textarea>
-                                </div>
-                            </article>
+                                @enderror
+                              </div>
+                        <h3 class="mt-40"> Addition information</h3>
+                        <div class="form-group form-group--inline textarea">
+                          <label>Order Notes</label>
+                          <textarea class="form-control" name="notes" rows="5" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                         </div>
+                      </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <header class="card-header">
-                                        <h4 class="card-title mt-2">Your Order</h4>
-                                    </header>
-                                    <article class="card-body">
-                                        <dl class="dlist-align">
-                                            <dt>Total cost: </dt>
-                                            <dd class="text-right h5 b"> {{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }} </dd>
-                                        </dl>
-                                    </article>
-                                </div>
-                            </div>
-                            <div class="col-md-12 mt-4">
-                                <button type="submit" class="subscribe btn btn-success btn-lg btn-block">Place Order</button>
-                            </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                      <div class="ps-checkout__order">
+                        <header>
+                          <h3>Your Order</h3>
+                        </header>
+                        <div class="content">
+                          <table class="table ps-checkout__products">
+                            <thead>
+                              <tr>
+                                <th class="text-uppercase">Total</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>{{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }}</td>
+                              </tr>
+                            </tbody>
+                          </table>
                         </div>
+                        <footer>
+                          <h3>Payment Method</h3>
+                          <div class="form-group paypal">
+                            <div class="ps-radio ps-radio--inline">
+                              <input class="form-control" type="radio" name="payment" id="rdo02">
+                              <label for="rdo02">Paypal</label>
+                            </div>
+                            <ul class="ps-payment-method">
+                              <li><a href="#"><img src="{{asset('frontend/images/payment/1.png')}}" alt=""></a></li>
+                              <li><a href="#"><img src="{{asset('frontend/images/payment/2.png')}}" alt=""></a></li>
+                              <li><a href="#"><img src="{{asset('frontend/images/payment/3.png')}}" alt=""></a></li>
+                            </ul>
+                            <button type="submit" class="ps-btn ps-btn--fullwidth">Place Order<i class="ps-icon-next"></i></button>
+                          </div>
+                        </footer>
+                      </div>
+                      <div class="ps-shipping">
+                        <h3>FREE SHIPPING</h3>
+                      </div>
                     </div>
-                </div>
+              </div>
             </form>
+          </div>
         </div>
-    </section>
 @stop

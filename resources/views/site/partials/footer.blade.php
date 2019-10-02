@@ -1,6 +1,6 @@
 <div
     class="ps-footer bg--cover"
-    data-background="frontend/images/background/parallax.jpg">
+    data-background="{{asset('frontend/images/background/parallax.jpg')}}">
     <div class="ps-footer__content">
         <div class="ps-container">
             <div class="row">

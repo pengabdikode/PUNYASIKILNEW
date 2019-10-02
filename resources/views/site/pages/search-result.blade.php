@@ -1,12 +1,17 @@
 @extends('site.app')
 @section('title', 'Search Result')
 @section('content')
-<section class="section-pagetop bg-dark">
-    <div class="container clearfix">
-        <h2 class="title-page">Search Result</h2>
-    </div>
-</section>
-<section class="section-content bg padding-y">
+<br>
+<br>
+<br>
+<br>
+<div class="ps-section__header mb-50">
+        <h3 class="ps-section__title1" data-mask="Search"></h3>
+</div>
+<div class="ps-section__header mb-50">
+        <h3 class="ps-section__title2" data-mask="RESULT"></h3>
+</div>
+<section class="section-content padding-y">
     <div class="container">
             <div class="col-sm-12">
                     @if (Session::has('error'))
@@ -65,8 +70,10 @@
                 <p>No Search Results found for '{{request()->input('query')}}'.</p> 
                 @endforelse
                 {{ $products->appends(request()->input())->links() }}
-               
+                <br>
+                <br>
             </main>
+            
             
         </section>
 @stop

@@ -43,7 +43,7 @@
     <div class="ps-section--features-product ps-section masonry-root pt-40 pb-80">
       <div class="ps-container">
         <div class="ps-section__header mb-50">
-          <h3 class="ps-section__title" data-mask="features">- Featured Products</h3>
+          <h3 class="ps-section__title2" data-mask="features">- Featured Products</h3>
           <ul class="ps-masonry__filter">
             <li class="current"><a href="#" data-filter="*">All</a></li>
           </ul>
@@ -104,72 +104,45 @@
       </div>
     </div>
     
-    <div class="ps-home-testimonial bg--parallax pb-80" data-background="frontend/images/background/parallax.jpg">
+  <div class="ps-home-testimonial bg--parallax pb-80" data-background="{{asset('frontend/images/background/parallax.jpg')}}">
       <div class="container">
             <div class="ps-section__header mb-50">
-                    <h3 class="ps-section__title1" data-mask="MEET"><span class="ourteam"></span></h3>
+                    <h3 class="ps-section__title1" data-mask="OUR"><span class="ourteam"></span></h3>
             </div>
             <div class="ps-section__header mb-50">
-                    <h3 class="ps-section__title" data-mask="OUR"><span class="ourteam"></span></h3>
+                    <h3 class="ps-section__title2" data-mask="TESTI"><span class="ourteam"></span></h3>
             </div>
             <div class="ps-section__header mb-50">
-                    <h3 class="ps-section__title2" data-mask="TEAM"><span class="ourteam"></span></h3>
-            </div>
+                <h3 class="ps-section__title" data-mask="MONY"><span class="ourteam"></span></h3>
+        </div>
         <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="false" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on" data-owl-animate-in="fadeIn" data-owl-animate-out="fadeOut">
           <div class="ps-testimonial">
-            <div class="ps-testimonial__thumbnail"><img src="frontend/images/testimonial/1.jpg" alt=""><i class="fa fa-quote-left"></i></div>
+            <div class="ps-testimonial__thumbnail"><img src="{{asset('frontend/images/testimonial/10.png')}}" alt=""><i class="fa fa-quote-left"></i></div>
             <header>
-              <p>Putu Koji Singga</p>
+              <p>Bu Megawati</p>
             </header>
             <footer>
-              <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
+              <p>“Keren keren sepatu yang dijual di SIKIL, selain keren, pelayanannya juga MANTAP“</p>
             </footer>
           </div>
           <div class="ps-testimonial">
-            <div class="ps-testimonial__thumbnail"><img src="frontend/images/testimonial/2.jpg" alt=""><i class="fa fa-quote-left"></i></div>
+            <div class="ps-testimonial__thumbnail"><img src="{{asset('frontend/images/testimonial/4.png')}}" alt=""><i class="fa fa-quote-left"></i></div>
             <header>
-              <p>Novita Urdi Marpaung</p>
+              <p>Danila Riyadi</p>
             </header>
             <footer>
-              <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
+              <p>“SIKIL MANIA MANTAP“</p>
             </footer>
           </div>
           <div class="ps-testimonial">
-            <div class="ps-testimonial__thumbnail"><img src="frontend/images/testimonial/3.jpg" alt=""><i class="fa fa-quote-left"></i></div>
+            <div class="ps-testimonial__thumbnail"><img src="{{asset('frontend/images/testimonial/9.png')}}" alt=""><i class="fa fa-quote-left"></i></div>
             <header>
-              <p>Aisyah Humairah</p>
+              <p>Mpok Jum</p>
             </header>
             <footer>
-              <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
+              <p>“Pokoknye mpok demen bener dah 'patu dari siniin, kage ade dah pokoknye di tempat lain“</p>
             </footer>
           </div>
-          <div class="ps-testimonial">
-                <div class="ps-testimonial__thumbnail"><img src="frontend/images/testimonial/1.jpg" alt=""><i class="fa fa-quote-left"></i></div>
-                <header>
-                  <p>Fakhri</p>
-                </header>
-                <footer>
-                  <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
-                </footer>
-              </div>
-              <div class="ps-testimonial">
-                    <div class="ps-testimonial__thumbnail"><img src="frontend/images/testimonial/1.jpg" alt=""><i class="fa fa-quote-left"></i></div>
-                    <header>
-                      <p>Fazri</p>
-                    </header>
-                    <footer>
-                      <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
-                    </footer>
-                  </div>
-                  <div class="ps-testimonial">
-                        <div class="ps-testimonial__thumbnail"><img src="frontend/images/testimonial/1.jpg" alt=""><i class="fa fa-quote-left"></i></div>
-                        <header>
-                          <p>Peni</p>
-                        </header>
-                        <footer>
-                          <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant. “</p>
-                        </footer>
-                      </div>
         </div>
       </div>
     </div>
@@ -242,9 +215,9 @@
   <script>
   $('.owl-carousel').owlCarousel({
     loop:true,
-    autoWidth:true,
     rewind:true,
     center:true,
+    autoplay:true,
     margin:10,
     dots:true,
     responsiveClass:true,
@@ -252,18 +225,20 @@
         0:{
             items:1,
             nav:false,
+            autoplay:true,
             dots:true
         },
         600:{
             items:1,
+            autoplay:true,
             nav:false,
             dots:true
         },
         1000:{
             items:1,
+            autoplay:true,
             nav:false,
             loop:true,
-            dots:true
         }
     }
 })</script>

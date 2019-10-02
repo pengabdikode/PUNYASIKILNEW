@@ -1,13 +1,27 @@
 @extends('site.app')
 @section('title', 'Register')
 @section('content')
-    <section class="section-pagetop bg-dark">
-        <div class="container clearfix">
-            <h2 class="title-page">Register</h2>
-        </div>
-    </section>
-    <section class="section-content bg padding-y">
-        <div class="container">
+<main class="ps-main">
+        <section class="ps-home-testimonial bg--parallax pb-80" data-background="{{asset('frontend/images/background/bgsikil.png')}}">
+            <div class="container">
+                    <div class="container">
+                            @if (session('status'))
+                            <div class="alert alert-success">
+                              {{ session('status') }}
+                            </div>
+                          @endif
+                          @if (session('warning'))
+                            <div class="alert alert-warning">
+                              {{ session('warning') }}
+                            </div>
+                    </div>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <div class="ps-section__header mb-50">
+                        <h3 class="ps-section__title1" data-mask="Register"><span class="ourteam"></span></h3>
+                </div>
             <div class="col-md-6 mx-auto">
                 <div class="card">
                     <header class="card-header">
@@ -75,4 +89,25 @@
             </div>
         </div>
     </section>
+</main>
+<script src="{{ asset('frontend/js/main.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('frontend/js/main.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('frontend/plugins/jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('frontend/plugins/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('frontend/plugins/jquery-bar-rating/dist/jquery.barrating.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('frontend/plugins/owl-carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('frontend/plugins/gmap3.min.js') }}"></script>
+  <script src="{{ asset('frontend/plugins/imagesloaded.pkgd.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('frontend/plugins/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('frontend/plugins/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+  <script src="{{ asset('frontend/plugins/jquery.matchHeight-min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('frontend/plugins/slick/slick/slick.min.js') }}"></script>
+  <script src="{{ asset('frontend/plugins/elevatezoom/jquery.elevatezoom.js') }}"></script>
+  
+  <script src="{{ asset('frontend/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('frontend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+  <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyA-XBs8xkUbYA0ykeWNnxWRP8SMOSQHFW8&amp;region=GB') }}"></script>
+  <script src="{{ asset('frontend/plugins/revolution/js/jquery.themepunch.tools.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('frontend/plugins/slick/slick/slick.min.js') }}"></script>
+  <script src="{{ asset('frontend/plugins/elevatezoom/jquery.elevatezoom.js') }}"></script>
 @stop

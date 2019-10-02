@@ -1,17 +1,25 @@
 @extends('site.app')
 @section('title', 'Order Completed')
 @section('content')
-    <section class="section-pagetop bg-dark">
-        <div class="container clearfix">
-            <h2 class="title-page">Order Completed</h2>
-        </div>
-    </section>
-    <section class="section-content bg padding-y border-top">
+<br>
+<br>
+<br>
+<br>
+<div class="ps-section__header mb-50">
+        <h3 class="ps-section__title1" data-mask="Order"></h3>
+</div>
+<div class="ps-section__header mb-50">
+        <h3 class="ps-section__title2" data-mask="Completed"></h3>
+</div>
+    <section class="section-content padding-y border-top">
         <div class="container">
             <div class="row">
                 <main class="col-sm-12">
-                    <p class="alert alert-success">Your order placed successfully. Your order number is : {{ $order->order_number }}.</p></main>
+                    <h2 class="alert alert-success">Your order placed successfully. Your order number is : {{ $order->order_number }}.</h2></main>
             </div>
         </div>
     </section>
+    <br>
+    <br>
+    <br>
 @stop

@@ -1,126 +1,119 @@
 @extends('site.app')
 @section('title', $product->name)
 @section('content')
-    <section class="section-pagetop bg-dark">
-        <div class="container clearfix">
-            <h2 class="title-page">{{ $product->name }}</h2>
+<main class="ps-main">
+    <div class="test">
+      <div class="container">
+        <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+              </div>
         </div>
-    </section>
-    <section class="section-content bg padding-y border-top" id="site">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="row no-gutters">
-                            <aside class="col-sm-5 border-right">
-                                <article class="gallery-wrap">
-                                    @if ($product->images->count() > 0)
-                                        <div class="img-big-wrap">
-                                            <div class="padding-y">
-                                                <a href="{{ asset('storage/'.$product->images->first()->full) }}" data-fancybox="">
-                                                    <img src="{{ asset('storage/'.$product->images->first()->full) }}" alt="">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="img-big-wrap">
-                                            <div>
-                                                <a href="https://via.placeholder.com/176" data-fancybox=""><img src="https://via.placeholder.com/176"></a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                     @if ($product->images->count() > 0)
-                                        <div class="img-small-wrap">
-                                            @foreach($product->images as $image)
-                                                <div class="item-gallery">
-                                                    <img src="{{ asset('storage/'.$image->full) }}" alt="">
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    @endif
-                                </article>
-                            </aside>
-                            <aside class="col-sm-7">
-                                <article class="p-5">
-                                    <h3 class="title mb-3"><span class="brushstroke">{{ $product->name }}</span></h3>
-                                    <dl class="row">
-                                        <dt class="col-sm-3">SKU</dt>
-                                        <dd class="col-sm-9">{{ $product->sku }}</dd>
-                                        <dt class="col-sm-3">Weight</dt>
-                                        <dd class="col-sm-9">{{ $product->weight }}</dd>
-                                    </dl>
-                                    <div class="mb-3">
-                                        @if ($product->sale_price > 0)
-                                            <var class="price h3 text-danger">
-                                                <span class="num" id="productPrice">{{ config('settings.currency_symbol').$product->sale_price }}</span>
-                                                <del class="price-old">{{ config('settings.currency_symbol').$product->price }}</del>
-                                            </var>
-                                        @else
-                                            <var class="price h3 text-success">
-                                                <span class="num" id="productPrice">{{ config('settings.currency_symbol').$product->price }}</span>
-                                            </var>
-                                        @endif
-                                    </div>
-                                    <hr>
-                                    <form action="{{ route('product.add.cart', $product->id) }}" method="POST" role="form" id="addToCart">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <dl class="dlist-inline">
-                                                    @foreach($attributes as $attribute)
-                                                    @php $attributeCheck = in_array($attribute->id, $product->attributes->pluck('attribute_id')->toArray()) @endphp
-                                                        @if ($attributeCheck)
-                                                            <dt>{{ $attribute->name }}: </dt>
-                                                            <dd>
-                                                                <select class="form-control form-control-sm option" style="width:180px;" name="{{ strtolower($attribute->name ) }}">
-                                                                    <option data-price="0" value="0"> Select a {{ $attribute->name }}</option>
-                                                                    @foreach($product->attributes as $attributeValue)
-                                                                        @if ($attributeValue->attribute_id == $attribute->id)
-                                                                            <option
-                                                                                data-price="{{ $attributeValue->price }}"
-                                                                                value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value . ' +'. $attributeValue->price) }}
-                                                                            </option>
-                                                                        @endif
-                                                                    @endforeach
-                                                                </select>
-                                                            </dd>
-                                                        @endif
-                                                    @endforeach
-                                                </dl>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <dl class="dlist-inline">
-                                                    <dt>Quantity: </dt>
-                                                    <dd>
-                                                        <input class="form-control" type="number" min="1" value="1" max="{{ $product->quantity }}" name="qty" style="width:70px;">
-                                                        <input type="hidden" name="productId" value="{{ $product->id }}">
-                                                        <input type="hidden" name="price" id="finalPrice" value="{{ $product->sale_price != '' ? $product->sale_price : $product->price }}">
-                                                    </dd>
-                                                </dl>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <button type="submit" class="btn btn-success"><i class="fas fa-shopping-cart"></i> Add To Cart</button>
-                                    </form>
-                                </article>
-                            </aside>
-                        </div>
-                    </div>
+      </div>
+    </div>
+    <div class="ps-product--detail pt-60">
+      <div class="ps-container">
+        <div class="row">
+          <div class="col-lg-10 col-md-12 col-lg-offset-1">
+            <div class="ps-product__thumbnail">
+              <div class="ps-product__preview">
+                <div class="ps-product__variants">
+                    @if ($product->images->count() > 0)
+                    @foreach($product->images as $image)
+                  <div class="item"><img src="{{ asset('storage/'.$image->full) }}" alt="" class="item-image"></div>
+                  @endforeach
                 </div>
-                <div class="col-md-12">
-                    <article class="card mt-4">
-                        <div class="card-body">
-                            <h1>Description</h1>
-                            {!! $product->description !!}
-                        </div>
-                    </article>
-                </div>
+              </div>
+              <div class="ps-product__image">
+                <div class="item"><img id="potogede" class="zoom" src="{{ asset('storage/'.$product->images->first()->full) }}" alt="" data-zoom-image="{{ asset('storage/'.$product->images->first()->full) }} "></div>
+                @else
+                <div class="item"><img class="zoom" src="https://via.placeholder.com/176" alt="" data-zoom-image="https://via.placeholder.com/176"></div>
+                @endif
+              </div>
             </div>
+            <div class="ps-product__thumbnail--mobile">
+            @if ($product->images->count() > 0)
+              <div class="ps-product__main-img"><img src="{{ asset('storage/'.$product->images->first()->full) }}" alt=""></div>
+
+              <div class="ps-product__preview owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="20" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
+                @foreach($product->images as $image)
+                <img src="{{ asset('storage/'.$image->full) }}" alt="">
+                @endforeach
+               
+            </div>
+            @else
+            <div class="ps-product__main-img"><img src="https://via.placeholder.com/176" alt=""></div>
+            @endif
+            
+            </div>
+            <div class="ps-product__info">
+              <h1><span class="brushstroke">{{$product->name }}</span></h1>
+              <p class="ps-product__category">SKU : {{ $product->sku }}</p>
+              @if ($product->sale_price > 0)
+              <h3 class="ps-product__price">{{ config('settings.currency_symbol').$product->sale_price }}<del>{{ config('settings.currency_symbol').$product->price }}</del></h3>
+              @else
+              <h3 class="ps-product__price">{{ config('settings.currency_symbol').$product->price }}</h3>
+              @endif
+              <div class="ps-product__block ps-product__quickview">
+                <h4>QUICK DESC</h4>
+              <p>{{ str_limit($product->description, 40) }}</p>
+              </div>
+              <form action="{{ route('product.add.cart', $product->id) }}" method="POST" role="form" id="addToCart">
+                  @csrf
+              <div class="ps-product__block ps-product__size">
+                <h4>CHOOSE SIZE</h4>
+                @foreach($attributes as $attribute)
+                                                  @php $attributeCheck = in_array($attribute->id, $product->attributes->pluck('attribute_id')->toArray()) @endphp
+                                                      @if ($attributeCheck)
+                                                          <dt>{{ $attribute->name }}: </dt>
+                                                          <dd>
+                                                              <select class="form-control form-control-sm option" style="width:180px;" name="{{ strtolower($attribute->name ) }}">
+                                                                  <option data-price="0" value="0"> Select a {{ $attribute->name }}</option>
+                                                                  @foreach($product->attributes as $attributeValue)
+                                                                      @if ($attributeValue->attribute_id == $attribute->id)
+                                                                          <option
+                                                                              data-price="{{ $attributeValue->price }}"
+                                                                              value="{{ $attributeValue->value }}"> {{ ucwords($attributeValue->value) }}
+                                                                          </option>
+                                                                      @endif
+                                                                  @endforeach
+                                                              </select>
+                                                          </dd>
+                                                      @endif
+                                                  @endforeach
+                <h4>QUANTITY</h4>                                    
+                <div class="form-group">
+                    <input class="form-control" type="number" min="1" value="1" max="{{ $product->quantity }}" name="qty">
+                    <input type="hidden" name="productId" value="{{ $product->id }}">
+                    <input type="hidden" name="price" id="finalPrice" value="{{ $product->sale_price != '0' ? $product->sale_price : $product->price }}">
+                </div>
+              </div>
+              <div class="ps-product__shopping"><button class="ps-btn mb-10" type="submit">Add to cart<i class="ps-icon-next"></i></button>
+              </div>
+              </form>
+            </div>
+            <div class="clearfix"></div>
+            <div class="ps-product__content mt-50">
+              <ul class="tab-list" role="tablist">
+                <li class="active"><a href="#tab_01" aria-controls="tab_01" role="tab" data-toggle="tab">Overview</a></li>
+                <li><a href="#tab_02" aria-controls="tab_02" role="tab" data-toggle="tab">Size Chart</a></li>
+              </ul>
+            </div>
+            <div class="tab-content mb-60">
+              <div class="tab-pane active" role="tabpanel" id="tab_01">
+                <p>{!! $product->description !!}</p>
+              </div>
+              <div class="tab-pane" role="tabpanel" id="tab_02">
+                    <div class="form-group">
+                      <textarea class="form-control" rows="6" placeholder="Enter your addition here..."></textarea>
+                    </div>
+                    <div class="form-group">
+                      <button class="ps-btn" type="button">Submit</button>
+                    </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 @stop
 @push('scripts')
     <script>
@@ -131,14 +124,34 @@
                     alert('Please select your shoes size');
                 }
             });
-            $('.option').change(function () {
-                $('#productPrice').html("{{ $product->sale_price != '' ? $product->sale_price : $product->price }}");
-                let extraPrice = $(this).find(':selected').data('price');
-                let price = parseFloat($('#productPrice').html());
-                let finalPrice = (Number(extraPrice) + price).toFixed(2);
-                $('#finalPrice').val(finalPrice);
-                $('#productPrice').html(finalPrice);
-            });
+            // $('.option').change(function () {
+            //     $('#productPrice').html("{{ $product->sale_price != '0' ? $product->sale_price : $product->price }}");
+            //     let extraPrice = $(this).find(':selected').data('price');
+            //     let price = parseFloat($('#productPrice').html());
+            //     let finalPrice = (Number(extraPrice) + price).toFixed(2);
+            //     $('#finalPrice').val(finalPrice);
+            //     $('#productPrice').html(finalPrice);
+            // });
         });
     </script>
+    <script src="{{ asset('frontend/js/main.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('frontend/plugins/jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('frontend/plugins/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('frontend/plugins/jquery-bar-rating/dist/jquery.barrating.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('frontend/plugins/owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/gmap3.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/imagesloaded.pkgd.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('frontend/plugins/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/jquery.matchHeight-min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('frontend/plugins/slick/slick/slick.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/elevatezoom/jquery.elevatezoom.js') }}"></script>
+    
+    <script src="{{ asset('frontend/plugins/Magnific-Popup/dist/jquery.magnific-popup.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('frontend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyA-XBs8xkUbYA0ykeWNnxWRP8SMOSQHFW8&amp;region=GB') }}"></script>
+    <script src="{{ asset('frontend/plugins/revolution/js/jquery.themepunch.tools.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('frontend/plugins/slick/slick/slick.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/elevatezoom/jquery.elevatezoom.js') }}"></script>
+  
 @endpush
