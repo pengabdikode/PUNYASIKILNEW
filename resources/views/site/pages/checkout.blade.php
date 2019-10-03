@@ -105,17 +105,23 @@
                           <table class="table ps-checkout__products">
                             <thead>
                               <tr>
+                                <th class="text-uppercase">Product</th>
                                 <th class="text-uppercase">Total</th>
                               </tr>
                             </thead>
                             <tbody>
+                              @foreach (\Cart::getContent() as $item)
                               <tr>
-                                <td>{{ config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }}</td>
+                                <td>{{ Str::words($item->name,20) }}, x{{ $item->quantity }}</td>
+                                <td>{{ config('settings.currency_symbol').$item->price * $item->quantity }}</td>
                               </tr>
+                              @endforeach
                             </tbody>
                           </table>
                         </div>
                         <footer>
+                          <h3>Grand Total</h3>
+                          <h3 class="GRANDTOTAL" style="color:#fee600; text-align:end;">{{config('settings.currency_symbol') }}{{ \Cart::getSubTotal() }}</h3>
                           <h3>Payment Method</h3>
                           <div class="form-group paypal">
                             <div class="ps-radio ps-radio--inline">
@@ -130,9 +136,6 @@
                             <button type="submit" class="ps-btn ps-btn--fullwidth">Place Order<i class="ps-icon-next"></i></button>
                           </div>
                         </footer>
-                      </div>
-                      <div class="ps-shipping">
-                        <h3>FREE SHIPPING</h3>
                       </div>
                     </div>
               </div>

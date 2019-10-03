@@ -3956,9 +3956,9 @@ textarea.form-control {
       -moz-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
       transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
       .sub-menu > li > a:hover {
-        color: #fff;
+        color: #fee600;
         padding-left: 20px;
-        background-color: #2AC37D; }
+        background-color: #000; }
     .sub-menu > li:last-child > a {
       border-bottom: none; }
     .sub-menu > li.menu-item-has-children {
@@ -6613,6 +6613,11 @@ html .bg--parallax {
 .pl-100 {
   padding-left: 100px; }
 
+
+ .GRANDTOTAL{
+   color: #fee600;
+   position: relative;
+ } 
   .invalid-feedback {
     display: none;
     width: 100%;

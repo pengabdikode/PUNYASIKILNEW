@@ -17,6 +17,7 @@
                         <div class="linkhover">
                         <button class="ps-btn2" href="#">{{ Auth::user()->full_name }}</button>
                         <div class="dropdown-cuy">
+                                <a href="{{route('profile.edit')}}">Edit Profile</a>
                                 <a href="{{ route('account.orders') }}">My Orders</a>
                                 <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
@@ -29,50 +30,6 @@
                         </div>
 
                         @endguest
-                        <div class="btn-group ps-dropdown">
-                            <a
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="dropdown-toggle"
-                                data-toggle="dropdown"
-                                href="#">USD</a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#"><img alt="" src="frontend/images/flag/usa.svg"/>
-                                        USD</a>
-                                </li>
-                                <li>
-                                    <a href="#"><img alt="" src="frontend/images/flag/singapore.svg"/>
-                                        SGD</a>
-                                </li>
-                                <li>
-                                    <a href="#"><img alt="" src="frontend/images/flag/japan.svg"/>
-                                        JPN</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group ps-dropdown">
-                            <a
-                                aria-expanded="false"
-                                aria-haspopup="true"
-                                class="dropdown-toggle"
-                                data-toggle="dropdown"
-                                href="#">Language</a>
-
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">English</a>
-                                </li>
-                                <li>
-                                    <a href="#">Japanese</a>
-                                </li>
-                                <li>
-                                    <a href="#">Chinese</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -139,7 +96,7 @@
                         <div class="ps-cart__content">
                             @foreach(\Cart::getContent() as $item)
                             <div class="ps-cart-item">
-                                <div class="ps-cart-item__thumbnail"><img alt="" src="images/cart-preview/1.jpg"/></div>
+                                {{-- <div class="ps-cart-item__thumbnail"><img alt="" src="images/cart-preview/1.jpg"/></div> --}}
 
                                 <div class="ps-cart-item__content">
                                     <a class="ps-cart-item__title" href="#">{{ Str::words($item->name,20) }}</a>

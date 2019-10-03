@@ -32,7 +32,7 @@
             </div>
             <div class="ps-product__thumbnail--mobile">
             @if ($product->images->count() > 0)
-              <div class="ps-product__main-img"><img src="{{ asset('storage/'.$product->images->first()->full) }}" alt=""></div>
+              <div class="ps-product__main-img"><img id="potogede" src="{{ asset('storage/'.$product->images->first()->full) }}" alt=""></div>
 
               <div class="ps-product__preview owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="20" data-owl-nav="true" data-owl-dots="false" data-owl-item="3" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="3" data-owl-duration="1000" data-owl-mousedrag="on">
                 @foreach($product->images as $image)

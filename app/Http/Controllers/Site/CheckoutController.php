@@ -27,7 +27,15 @@ class CheckoutController extends Controller
 
     public function placeOrder(Request $request)
     {
-        // Belom Validasi
+        $this->validate($request, [
+            'first_name'      =>  'required|max:191',
+            'last_name'      =>  'required|max:191',
+            'address'      =>  'required|max:191',
+            'city'      =>  'required|max:191',
+            'country'      =>  'required|max:191',
+            'phone_number'      =>  'required|max:14',
+            'post_code'      =>  'required|max:191',
+        ]);
         
         $order = $this->orderRepository->storeOrderDetails($request->all());
 
